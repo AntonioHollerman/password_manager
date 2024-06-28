@@ -4,11 +4,13 @@ from Functions_text_ver import *
 from tkinter.filedialog import askopenfilename, askdirectory
 from typing import List, Tuple
 import os
+import customtkinter
 
 
-class PasswordManager(tk.Tk):
+class PasswordManager(customtkinter.CTk):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+        customtkinter.set_appearance_mode("light")
 
         self.passwords = {}
         self.key_to_char = {}
@@ -208,7 +210,7 @@ class HomeFrame(ttk.Frame):
         pass_win.columnconfigure(2, weight=1)
 
 
-class PasswordFrame(ttk.Frame):
+class PasswordFrame(customtkinter.CTkScrollableFrame):
     def __init__(self, container: PasswordManager, **kwargs):
         super().__init__(container, **kwargs)
         self.container = container
